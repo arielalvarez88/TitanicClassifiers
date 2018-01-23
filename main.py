@@ -1,13 +1,14 @@
 import pandas as pd
 from TitanicPreProcessor import TitanicPreProcessor
 from DecisionTree import DecisionTree
+from SVM import SVM
 from KNN import KNN
 
 df = pd.read_csv("train.csv")
 preProc = TitanicPreProcessor()
 X,y = preProc.preprocess(df)
 
-classifier = DecisionTree()
+classifier = SVM()
 classifier.printReport(X,y)
 #classifiers = {
 #    "Decision Tree": 1,
