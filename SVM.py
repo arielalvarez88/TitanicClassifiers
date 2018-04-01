@@ -22,7 +22,7 @@ class SVM(AbstractAlgorithm):
 
     def printReport(self,X,y):      
         model = SVC()
-        print("SVM running...")
+        print("Training SVM...")
         X_train, X_test, y_train , y_test = train_test_split(X,y,test_size=0.3)
         X_train  = self.scale(X_train)
         X_test  = self.scale(X_test)        

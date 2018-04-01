@@ -12,6 +12,7 @@ class DecisionTree(AbstractAlgorithm):
         self.neighbors_to_test = np.arange(1,21)
 
     def printReport(self,X,y):      
+        print("Training DecisionTree...")
         model = tree.DecisionTreeClassifier()
         meanScore = self.cossValidiateScore(model,X,y)
 

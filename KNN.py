@@ -25,7 +25,7 @@ class KNN(AbstractAlgorithm):
         None
 
         """
-
+        print("Training KNN...")
         X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,stratify=y)
 
         best_k = None
@@ -36,13 +36,13 @@ class KNN(AbstractAlgorithm):
         for k in self.neighbors_to_test:
             model = KNeighborsClassifier(n_neighbors=k)
             score = self.cossValidiateScore(model, X_train, y_train)
-            if(score > best_score or best_score == None):
+            if(best_score == None or score > best_score):
                 best_k = k
                 best_score = score
                 
                 
         best_model = KNeighborsClassifier(n_neighbors=best_k)
         best_model.fit(X_train, y_train)
-        print("Accuracy: {best_score}".format(best_score = best_model.score(X_test,y_test)))
+        print("Accuracy for KNN: {best_score}".format(best_score = best_model.score(X_test,y_test)))
 
    
